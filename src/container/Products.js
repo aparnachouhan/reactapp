@@ -16,6 +16,7 @@ const Products = () => {
         setProducts(data.data)
     }
 
+    let loadingArr = [1, 2, 4, 5, 7, 9, 8, 7, 8, 7, 9]
     useEffect(() => {
         getData();
     }, [])
@@ -24,11 +25,20 @@ const Products = () => {
 
         <>
             <div className="grid md:grid-cols-5 grid-cols-2 P-20">
-                {products.map((product) => {
+
+
+                {products.length > 0 ? <>     {products.map((product) => {
                     return (
-                        <ProductCard product={product}/>
+                        <ProductCard product={product} />
                     )
-                })}
+                })} </> : <> {loadingArr.map(() => {
+                    return (
+                        <ProductCard product={''} />
+                    )
+                })} </>}
+
+
+
             </div>
         </>
     )

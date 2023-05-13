@@ -1,4 +1,5 @@
 import React from "react";
+import Skeleton from "react-loading-skeleton";
 
 
 const ProductCard = (props) => {
@@ -8,13 +9,12 @@ const ProductCard = (props) => {
 
             <div className="p-6 shadow flex-col">
                 <div className="">
-                    <img className="w-full h-60" src={product.images[0]} />
-                </div>
+                    {props.product.images ? <img className="w-full h-60" src={product.images[0]} /> : <Skeleton  count={10} />}                </div>
                 <div className="">
-                    <h1 className="text-xl  font-bold  mt-4 mb-4">{product.title}</h1>
-                    <p className="text-gray-700">{product.description}</p>
+                    <h1 className="text-xl  font-bold  mt-4 mb-4">{props.product.title || <Skeleton />}</h1>
+                    <p className="text-gray-700">{props.product.description || <Skeleton/>}</p>
                     <div className="">
-                        <p className="text-gray-700 text-xl">Price - Rs.{product.price} </p>
+                        <p className="text-gray-700 text-xl">Price - Rs.{props.product.price || <Skeleton/>} </p>
                     </div>
                 </div>
                 <div className="flex flex-row mt-4 items-center justify-between">
