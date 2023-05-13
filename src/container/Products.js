@@ -12,36 +12,38 @@ const Products = () => {
         //     }).catch((err) => {
         //         console.log(err)
         //     })
-        const data = await axios.get('https://api.escuelajs.co/api/v1/products')
+        const data = await axios.get('https://api.escuelajs.co/api/v1/products', { headers:{
+            Authorization: 'Bearer Tkoen'
+        }})
         setProducts(data.data)
-    }
+}
 
-    let loadingArr = [1, 2, 4, 5, 7, 9, 8, 7, 8, 7, 9]
-    useEffect(() => {
-        getData();
-    }, [])
+let loadingArr = [1, 2, 4, 5, 7, 9, 8, 7, 8, 7, 9]
+useEffect(() => {
+    getData();
+}, [])
 
-    return (
+return (
 
-        <>
-            <div className="grid md:grid-cols-5 grid-cols-2 P-20">
-
-
-                {products.length > 0 ? <>     {products.map((product) => {
-                    return (
-                        <ProductCard product={product} />
-                    )
-                })} </> : <> {loadingArr.map(() => {
-                    return (
-                        <ProductCard product={''} />
-                    )
-                })} </>}
+    <>
+        <div className="grid md:grid-cols-5 grid-cols-2 P-20">
 
 
+            {products.length > 0 ? <>     {products.map((product) => {
+                return (
+                    <ProductCard product={product} />
+                )
+            })} </> : <> {loadingArr.map(() => {
+                return (
+                    <ProductCard product={''} />
+                )
+            })} </>}
 
-            </div>
-        </>
-    )
+
+
+        </div>
+    </>
+)
 }
 
 export default Products;
