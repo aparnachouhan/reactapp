@@ -1,30 +1,25 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "../container/Home";
-import Contact from "../container/Contact";
+import Login from "../container/auth/Login";
 import About from "../container/About";
 import Header from "../components/Header";
 import Products from "../container/Products";
+import { useSelector } from "react-redux";
 
 
 
 const AppRouter = (props) => {
 
-    console.log(props)
 
     return (
         <>
 
-            <BrowserRouter>
-            <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/contact"  element={<Contact name={props}/>} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/products" element={<Products />} />
 
-                </Routes>
+            <Routes>
 
-            </BrowserRouter>
+                    <Route path="/" element={<Login />} />
+            </Routes>
+
         </>
     )
 }
