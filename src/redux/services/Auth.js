@@ -4,10 +4,8 @@ import { handleError, setHeadersWithAccessToken } from "./Comman"
 
 
 export const LoginHandler = async (data) => {
-    let d = await DataService.post(API.Auth.Login, data)
-    console.log(d)
     return await DataService.post(API.Auth.Login, data).then((res) => {
-        return res.data
+        return res
     }).catch((err) => {
         handleError(err.response.data)
     })

@@ -1,6 +1,6 @@
 const API = {
     Auth: {
-        Login: '/auth/login',
+        Login: '/account/login',
         Register: '/api/register'
     },
     Doctors: {
