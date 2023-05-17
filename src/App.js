@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       <AppRouter/>
       
-      <ToastContainer />
 
     </div>
   );

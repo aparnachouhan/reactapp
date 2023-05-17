@@ -1,4 +1,5 @@
 import axios from 'axios'
+import DataService from '../../config/Dataservice';
 const setHeadersWithAccessToken = (token) => {
     axios.defaults.headers.post["Authorization"] = `Bearer ${token}`;
 };
@@ -21,15 +22,22 @@ const setGetHeadersWithAccessToken = (token) => {
 };
 
 const handleError = (error) => {
-    console.log(error)
     for (const key in error) {
         if (Object.hasOwnProperty.call(error, key)) {
             const element = error["response"];
-            // console.log(element,4444);
             return { message: element.data.message, status: element.status };
         }
     }
 };
+
+
+export const ResetPassword = async (data) => {
+    return await DataService.post('', data).then((res) => {
+        return res
+    }).catch((err) => {
+        return handleError(err)
+    })
+}
 
 
 export { handleError, setGetHeadersWithAccessToken, setHeadersWithAccessToken, setHeadersWithContentType2, setHeadersWithContentType, setHeadersWithDeleteAccessToken } 

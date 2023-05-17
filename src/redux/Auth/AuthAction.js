@@ -8,12 +8,15 @@ export const LoginAction = (data, navigate) => async (dispatch) => {
     })
     LoginHandler(data).then((res) => {
         if (res.status === 200) {
-            toast.success(res.data.mag)
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
-            navigate('/dashboard')
+            navigate('/clinic/dashboard')
+        }
+        console.log(res.status)
+        if(!res.status){
+            toast.error('Something went wrong')
         }
     }).catch((err) => {
         console.log('Can not', err)

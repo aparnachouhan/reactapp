@@ -9,6 +9,10 @@ const API = {
 
     Clinic: {
 
+        Staff: {
+            GetAllStaffList: '/account/view-all/staff'
+        }
+
     }
 }
 
