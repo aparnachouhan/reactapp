@@ -14,7 +14,7 @@ const Login = (props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const User = useSelector(state => state.Clinic.user)
+    const User = useSelector(state => state.login.accessToken)
 
     const onChange = (e) => {
         console.log(e.target.name)
