@@ -6,17 +6,10 @@ import Index from '../../components';
 import { useSelector } from 'react-redux';
 const Dashboard = () => {
 
-    const data = useSelector(state=>state.clinic.DashboardState)
     return <>
-    <ClinicLayout>
-<Index.Card className='grid grid-cols-4'>
-    {data.map((item)=>{
-    return(
-        <StatsCard state={item}/>
-    )
-})}
-</Index.Card>
-    </ClinicLayout>
+<ClinicLayout>
+    
+</ClinicLayout>
     </>;
 }
 

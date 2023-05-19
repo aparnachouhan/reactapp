@@ -16,11 +16,11 @@ export const GetStaffList = async (token) => {
 
 export const AddNewStaff = async (data, token) => {
   setHeadersWithAccessToken(token);
-  return DataService.post(API.Clinic.Staff.GetAllStaffList)
-    .then((res) => {
+  return DataService.post(API.Clinic.Staff.AddStaff, data)
+    .then(res => {
       return res.data;
     })
-    .catch((err) => {
+    .catch(err => {
       return handleError(err);
     });
 };

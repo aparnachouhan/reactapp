@@ -5,7 +5,12 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemPrefix
+  Tabs,
+  Tab,
+  ListItemPrefix,
+  CardHeader,
+  Chip,
+  CardBody
 } from "@material-tailwind/react";
 // import { Dashboard } from '@mui/icons-material';
 import {
@@ -16,6 +21,11 @@ import {
 
 const Index = {
   Card,
+  Tabs,
+  Chip,
+  CardHeader,
+  CardBody,
+  Tab,
   Input,
   Typography,
   List,
