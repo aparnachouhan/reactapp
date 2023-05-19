@@ -15,7 +15,7 @@ const ClinicLayout = (props) => {
                     <Index.Card className="w-30">
                         <SideBar />
                     </Index.Card>
-                    <Index.Card className="w-70">
+                    <Index.Card className=" px-32 pt-12">
                         {props.children}
                     </Index.Card>
                 </Index.Card>
