@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Routes, useNavigate, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useNavigate,
+  Navigate
+} from "react-router-dom";
 import Home from "../container/Home";
 import Login from "../container/auth/Login";
 import About from "../container/About";
@@ -8,38 +14,31 @@ import { useSelector } from "react-redux";
 import Dashboard from "../container/pages/Dashboard";
 import { ToastContainer } from "react-toastify";
 import StaffList from "../container/clinic/Staff/Stafflist";
-
-
+import ClinicLayout from "../components/Layout/Clinic/ClinicLayout";
 
 const AppRouter = (props) => {
+  const data = useSelector((state) => state.login.type);
 
-    const data = useSelector(state => state.login.type)
+  console.log(data, "type");
 
-    console.log(data, "type")
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-    return (
-        <>
+        {/* Clinic Private Routes */}
+        {/* {data == "clinic" && <></>} */}
+          <Route path="/clinic/dashboard" element={<Dashboard />} />
+          <Route path="/clinic/staff/list" element={<StaffList />} />
 
+        {/* End of Clinic Private Routes */}
 
-            <Routes>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
 
-                <Route path="/" element={<Login />} />
-
-                {data == 'clinic' && <> <Route path="/clinic/dashboard" element={<Dashboard />} />
-                    <Route path="/clinic/staff/list" element={<StaffList />} /></>}
-
-                <Route
-                    path="*"
-                    element={<Navigate to="/" replace />}
-                />
-            </Routes>
-
-            <ToastContainer />
-
-
-        </>
-    )
-}
-
+      <ToastContainer />
+    </>
+  );
+};
 
 export default AppRouter;

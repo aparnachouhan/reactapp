@@ -2,17 +2,18 @@ import React from "react";
 import Index from '../../index'
 import SideBar from "../../comman/Sidebar/SideBar";
 import ClinicHeader from "./ClinicHeader";
+import StatsCard from "../../comman/StatsCard/StatsCard";
 
 
-const ClinicLayout = (props) => {
+const ClinicLayout = ({children}) => {
     return (
         <>
-            <Index.Card className="w-full flex flex-col h-screen">
+            <Index.Card className="flex flex-col h-screen">
                 <Index.Card>
                     <ClinicHeader />
                 </Index.Card>
-                <Index.Card className="flex flex-row">
-                    <Index.Card className="w-30">
+                <Index.Card className="flex  flex-row ">
+                    <Index.Card className="w-[23%]">
                         <SideBar />
                     </Index.Card>
                     <Index.Card className=" px-32 pt-12">
