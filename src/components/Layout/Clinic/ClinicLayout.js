@@ -13,11 +13,11 @@ const ClinicLayout = ({children}) => {
                     <ClinicHeader />
                 </Index.Card>
                 <Index.Card className="flex  flex-row ">
-                    <Index.Card className="w-[23%]">
+                    <Index.Card className="w-[23vw]">
                         <SideBar />
                     </Index.Card>
-                    <Index.Card className=" px-32 pt-12">
-                        {props.children}
+                    <Index.Card className="w-[77vw] shadow-none">
+                        {children}
                     </Index.Card>
                 </Index.Card>
             </Index.Card>
