@@ -6,6 +6,7 @@ const DoctorsHeader = () => {
         <Index.Card className="bg-gray-100 p-4">
 
 
+
         </Index.Card>
 
         </>

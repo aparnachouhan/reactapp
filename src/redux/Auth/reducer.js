@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { LOGIN_REQUEST, LOGIN_SUCCESS } from "./Constant";
+import { AUTH_ERROR, AUTH_LOGOUT, LOGIN_REQUEST, LOGIN_SUCCESS } from "./Constant";
 
 const initialState = {
     login: {
@@ -13,10 +13,17 @@ const Reducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
             return { loading: true }
-
         case LOGIN_SUCCESS:
-            toast.success("login Sucecss")
+            console.log(action.payload)
+            toast.success('Login Success')
             return { type: 'clinic', accessToken: action.payload.Token.access }
+        case AUTH_ERROR:
+            toast.error(action.payload.message)
+            return state;
+
+        case AUTH_LOGOUT:
+            toast.success('Logout Success')
+            return { accessToken: null }
         default:
             return state
     }

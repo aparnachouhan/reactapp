@@ -1,7 +1,7 @@
 import axios from 'axios'
 import DataService from '../../config/Dataservice';
 const setHeadersWithAccessToken = (token) => {
-    axios.defaults.headers.post["Authorization"] = `Bearer ${token}`;
+    DataService.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 
 const setHeadersWithDeleteAccessToken = (token) => {
@@ -24,8 +24,9 @@ const setGetHeadersWithAccessToken = (token) => {
 const handleError = (error) => {
     for (const key in error) {
         if (Object.hasOwnProperty.call(error, key)) {
-            const element = error["response"];
-            return { message: element.data.message, status: element.status };
+            const element = error.response.data;
+            console.log(element)
+            return { message: element.message, status: element.status_code};
         }
     }
 };

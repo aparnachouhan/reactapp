@@ -7,24 +7,24 @@ import {
   ListItem,
   ListItemPrefix
 } from "@material-tailwind/react";
+// import { Dashboard } from '@mui/icons-material';
 import {
   DashboardOutlined,
   PeopleAltOutlined,
-  MasksOutlined
+  MedicalServicesOutlined
 } from "@mui/icons-material";
 
 const Index = {
   Card,
   Input,
-  MasksOutlined,
-  PeopleAltOutlined,
   Typography,
   List,
   ListItem,
-  DashboardOutlined,
   Button,
+  MedicalServicesOutlined,
+  PeopleAltOutlined,
+  DashboardOutlined,
   ListItemPrefix
 };
 
 export default Index;
-
