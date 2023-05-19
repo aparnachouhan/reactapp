@@ -5,11 +5,9 @@ const Header = () => {
     return (
         <>
             <div className='flex flex-row justify-between p-12'>
-
                 <div className=''>
                     <h1 className='text-3xl font-bold text-red-500 '>Header</h1>
                 </div>
-
                 <div className='flex flex-row space-x-4'>
                     <Link to='/'><span>Home</span></Link>
                     <Link to='/about'> <span>About</span></Link>

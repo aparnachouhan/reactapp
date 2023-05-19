@@ -8,27 +8,27 @@ const SideBar = () => {
     const links = [
         {
             title: "Dashboard",
-            icon: '',
+            icon:<Index.DashboardOutlined />,
             navigate: '',
         },
         {
             title: "Staff",
-            icon: '',
+            icon: <Index.PeopleAltOutlined/>,
             navigate: '',
         },
         {
             title: "Doctors",
-            icon: '',
+            icon: <Index.MasksOutlined/>,
             navigate: '/',
         }
     ]
 
     return (
         <>
-            <Index.Card className=" top-4 left-4 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-full shadow-blue-gray-900/5">
+            <Index.Card className="  left-4 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xxl ">
                 <div className="mb-2 p-4">
                     <Index.Typography variant="h5" color="blue-gray">
-                        Sidebar
+                        {/* Sidebar */}
                     </Index.Typography>
                 </div>
                 <Index.List>
@@ -38,6 +38,8 @@ const SideBar = () => {
                                 <Index.ListItem>
                                     <Index.ListItemPrefix>
                                         {/* <Index.DashboardIcon /> */}
+
+                                        {link.icon}
                                         {/* <PresentationChartBarIcon className="h-5 w-5" /> */}
                                     </Index.ListItemPrefix>
                                     <Link to={link.navigate}>{link.title}</Link>
