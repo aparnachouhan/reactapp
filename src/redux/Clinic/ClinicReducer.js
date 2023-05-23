@@ -1,10 +1,12 @@
 import { toast } from "react-toastify";
 import {
   ADD_NEW_STAFF_REQUEST,
+  DELETE_STAFF_SUCCESS,
   GET_DASHBOARD_DATA_REQUEST,
   GET_DASHBOARD_DATA_SUCCESS,
   GET_STAFF_LIST_REQUEST,
-  GET_STAFF_LIST_SUCCESS
+  GET_STAFF_LIST_SUCCESS,
+  UPDATE_STAFF_SUCCESS
 } from "./clinicConstant";
 import { Dashboard } from "@mui/icons-material";
 
@@ -58,6 +60,12 @@ const ClinicReducer = (state = initialState, action) => {
     case ADD_NEW_STAFF_REQUEST:
       toast.success("Staff Added");
       return { loading: false };
+    case DELETE_STAFF_SUCCESS:
+      toast.success("Staff Deleted")
+      return { loading: false }
+    case UPDATE_STAFF_SUCCESS:
+      toast.success("Staff Updated")
+      return { loading: false}
 
     default:
       return state;

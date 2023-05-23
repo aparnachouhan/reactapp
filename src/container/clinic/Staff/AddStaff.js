@@ -13,7 +13,7 @@ import {
 } from "@material-tailwind/react";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { AddNewStaffAction } from "../../../redux/Clinic/clinicActions";
+import { AddNewStaffAction, UpdateStaffAction } from "../../../redux/Clinic/clinicActions";
 const AddStaff = props => {
   const [open, setOpen] = useState(false);
   const [staffMemberDetails, setStaffMemberDetails] = React.useState(
@@ -24,7 +24,16 @@ const AddStaff = props => {
   const dispatch = useDispatch();
   const handleOpen = () => setOpen(!open);
 
-  const UpdateStaffmember = () => {};
+  const UpdateStaffmember = () => {
+    const formData = new URLSearchParams();
+    formData.append("first_Name", staffMemberDetails.first_Name);
+    formData.append("last_Name", staffMemberDetails.last_Name);
+    formData.append("email", staffMemberDetails.email);
+    formData.append("contact", staffMemberDetails.contact);
+
+    dispatch(UpdateStaffAction(formData, token));
+    handleOpen();
+  };
 
   const AddStaffMember = () => {
     const formData = new URLSearchParams();
@@ -36,7 +45,6 @@ const AddStaff = props => {
     formData.append("password2", staffMemberDetails.password);
 
     dispatch(AddNewStaffAction(formData, token));
-
     handleOpen();
   };
 
@@ -127,7 +135,7 @@ const AddStaff = props => {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" color="green" onClick={AddStaffMember}>
+          <Button variant="gradient" color="green" onClick={props.userDetails ? UpdateStaffmember : AddStaffMember}>
             <span>
               {props.userDetails ? "Update user" : "Add User"}
             </span>
