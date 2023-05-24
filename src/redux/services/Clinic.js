@@ -25,7 +25,23 @@ export const AddNewStaff = async (data, token) => {
     });
 };
 
-// export const DeleteStaff = async (data, token) => {
-//   setHeadersWithAccessToken();
-//   return DataService.delete("");
-// };
+export const UpdateStaff = async(data,token) =>{
+  setHeadersWithAccessToken(token);
+  return DataService.put(API.Clinic.Staff.UpdateStaff, data)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      return handleError(err);
+    });
+}
+
+export const DeleteStaffService = async (data, token) => {
+  setHeadersWithAccessToken(token);
+  return DataService.delete(`${API.Clinic.Staff.DeleteStaff}/${data.id}`).then(res => {
+    return res.data;
+  })
+    .catch(err => {
+      return handleError(err);
+    });;
+};
