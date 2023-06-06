@@ -6,11 +6,15 @@ import {
   GET_DASHBOARD_DATA_SUCCESS,
   GET_STAFF_LIST_REQUEST,
   GET_STAFF_LIST_SUCCESS,
-  UPDATE_STAFF_SUCCESS
+  UPDATE_STAFF_SUCCESS,
+  GET_DOCTOR_LIST_REQUEST,
+  GET_DOCTOR_LIST_SUCCESS
 } from "./clinicConstant";
 import { Dashboard } from "@mui/icons-material";
 
 let allStaff = [{}];
+
+let allDoctor = [{}];
 
 let DashBoardsData = [
   {
@@ -41,6 +45,7 @@ let DashBoardsData = [
 
 const initialState = {
   allStaff: [],
+  allDoctor: [],
   DashboardState: DashBoardsData
 };
 
@@ -66,6 +71,10 @@ const ClinicReducer = (state = initialState, action) => {
     case UPDATE_STAFF_SUCCESS:
       toast.success("Staff Updated")
       return { loading: false}
+    case GET_DOCTOR_LIST_REQUEST:
+      return { loading: true };
+    case GET_DOCTOR_LIST_SUCCESS:
+      return { DoctorList: action.payload };  
 
     default:
       return state;

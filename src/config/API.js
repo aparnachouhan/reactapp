@@ -11,6 +11,8 @@ const API = {
       AddStaff: "/account/staff/registration",
       DeleteStaff:'/account/staff-delete',
       UpdateStaff:'/account/staff-update/information',
+    },
+    Doctor: {
       ViewAllDoctors:'/account/view-all/doctor'
     }
   }

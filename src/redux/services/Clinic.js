@@ -45,3 +45,16 @@ export const DeleteStaffService = async (data, token) => {
       return handleError(err);
     });;
 };
+
+
+export const GetDoctorList = async (token) => {
+  setHeadersWithAccessToken(token);
+  return await DataService.get(API.Clinic.Doctor.ViewAllDoctors)
+    .then((res) => {
+      console.log(res);
+      return res.data;
+    })
+    .catch((err) => {
+      return handleError(err);
+    });
+};

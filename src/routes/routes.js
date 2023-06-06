@@ -15,6 +15,7 @@ import Dashboard from "../container/pages/Dashboard";
 import { ToastContainer } from "react-toastify";
 import StaffList from "../container/clinic/Staff/Stafflist";
 import ClinicLayout from "../components/Layout/Clinic/ClinicLayout";
+import DoctorList from "../container/clinic/Doctors/Doctorlist";
 
 const AppRouter = (props) => {
   const data = useSelector((state) => state.login.type);
@@ -28,7 +29,8 @@ const AppRouter = (props) => {
 
         {/* Clinic Private Routes */}
         {data == "clinic" && <>     <Route path="/clinic/dashboard" element={<Dashboard />} />
-          <Route path="/clinic/staff/list" element={<StaffList />} /></>}
+          <Route path="/clinic/staff/list" element={<StaffList />} />
+          <Route path="/clinic/doctor/list" element={<DoctorList />} /></>}
 
 
         {/* End of Clinic Private Routes */}

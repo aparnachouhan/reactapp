@@ -19,7 +19,7 @@ const SideBar = () => {
         {
             title: "Doctors",
             icon: <Index.MedicalServicesOutlined />,
-            navigate: '/clinic/doctors',
+            navigate: '/clinic/doctor/list',
         }
     ]
 
