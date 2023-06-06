@@ -26,9 +26,11 @@ export const LoginAction = (data, navigate) => async (dispatch) => {
 }
 
 
-export const LogoutAction = () => (dispatch) => {
-        dispatch({
-            type: AUTH_LOGOUT,
-            payload: {}
-        })
+export const LogoutAction = (navigate) => (dispatch) => {
+    dispatch({
+        type: AUTH_LOGOUT,
+        payload: {}
+    })
+    toast.success('Logout')
+    navigate('/')
 }

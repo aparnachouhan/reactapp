@@ -31,7 +31,7 @@ const AddStaff = props => {
     formData.append("email", staffMemberDetails.email);
     formData.append("contact", staffMemberDetails.contact);
 
-    dispatch(UpdateStaffAction(formData, token));
+    dispatch(UpdateStaffAction(staffMemberDetails, token));
     handleOpen();
   };
 
