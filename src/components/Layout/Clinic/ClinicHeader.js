@@ -1,8 +1,17 @@
 import React from 'react'
 import Index from '../..';
+import { useDispatch } from 'react-redux';
+import { LogoutAction } from '../../../redux/Auth/AuthAction';
+import { useNavigate } from 'react-router-dom';
 
 
 const ClinicHeader = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
+
+
     return (
         <>
 
@@ -16,7 +25,7 @@ const ClinicHeader = () => {
 
                 <Index.Card>
 
-                    <Index.Button className='bg-red-500 rounded-none'>
+                    <Index.Button onClick={() => { dispatch(LogoutAction(navigate)) }} className='bg-red-500 rounded-none'>
                         Logout
                     </Index.Button>
 

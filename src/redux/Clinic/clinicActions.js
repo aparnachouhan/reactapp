@@ -9,6 +9,7 @@ import {
 } from "./clinicConstant";
 
 export const GetStaffListAction = (token, navigate) => dispatch => {
+  
   dispatch({
     type: GET_STAFF_LIST_REQUEST,
     payload: []

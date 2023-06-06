@@ -10,7 +10,8 @@ const API = {
       GetAllStaffList: "/account/view-all/staff",
       AddStaff: "/account/staff/registration",
       DeleteStaff:'/account/staff-delete',
-      UpdateStaff:'/account/staff-update/information'
+      UpdateStaff:'/account/staff-update/information',
+      ViewAllDoctors:'/account/view-all/doctor'
     }
   }
 };

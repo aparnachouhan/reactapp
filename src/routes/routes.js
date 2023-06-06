@@ -27,9 +27,9 @@ const AppRouter = (props) => {
         <Route path="/" element={<Login />} />
 
         {/* Clinic Private Routes */}
-        {/* {data == "clinic" && <></>} */}
-          <Route path="/clinic/dashboard" element={<Dashboard />} />
-          <Route path="/clinic/staff/list" element={<StaffList />} />
+        {data == "clinic" && <>     <Route path="/clinic/dashboard" element={<Dashboard />} />
+          <Route path="/clinic/staff/list" element={<StaffList />} /></>}
+
 
         {/* End of Clinic Private Routes */}
 

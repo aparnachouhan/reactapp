@@ -26,7 +26,7 @@ export const AddNewStaff = async (data, token) => {
 };
 
 export const UpdateStaff = async(data,token) =>{
-  setHeadersWithAccessToken(token);
+  // setHeadersWithAccessToken(token);
   return DataService.put(API.Clinic.Staff.UpdateStaff, data)
     .then(res => {
       return res.data;

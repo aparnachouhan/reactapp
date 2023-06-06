@@ -22,7 +22,6 @@ const Reducer = (state = initialState, action) => {
             return state;
 
         case AUTH_LOGOUT:
-            toast.success('Logout Success')
             return { accessToken: null }
         default:
             return state
