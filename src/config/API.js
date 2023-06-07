@@ -13,7 +13,9 @@ const API = {
       UpdateStaff:'/account/staff-update/information',
     },
     Doctor: {
-      ViewAllDoctors:'/account/view-all/doctor'
+      ViewAllDoctors:'/account/view-all/doctor',
+      AddDoctor: "/account/doctor/registration",
+      UpdateDoctor:"/account/doctor-update/information",
     }
   }
 };

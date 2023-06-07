@@ -25,9 +25,33 @@ export const AddNewStaff = async (data, token) => {
     });
 };
 
+
+export const AddNewDoctor = async (data, token) => {
+  setHeadersWithAccessToken(token);
+  return DataService.post(API.Clinic.Doctor.AddDoctor, data)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      return handleError(err);
+    });
+};
+
 export const UpdateStaff = async(data,token) =>{
   // setHeadersWithAccessToken(token);
   return DataService.put(API.Clinic.Staff.UpdateStaff, data)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      return handleError(err);
+    });
+}
+
+
+export const UpdateDoctor = async(data,token) =>{
+  // setHeadersWithAccessToken(token);
+  return DataService.put(API.Clinic.Doctor.UpdateDoctor, data)
     .then(res => {
       return res.data;
     })

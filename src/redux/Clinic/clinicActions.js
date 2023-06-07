@@ -1,5 +1,5 @@
-import { AddNewStaff, DeleteStaffService, GetStaffList, UpdateStaff, GetDoctorList } from "../services/Clinic";
-import { DELETE_STAFF_REQUEST, DELETE_STAFF_SUCCESS, UPDATE_STAFF_REQUEST, UPDATE_STAFF_SUCCESS } from "./clinicConstant";
+import { AddNewStaff, DeleteStaffService, GetStaffList, UpdateStaff, GetDoctorList,AddNewDoctor,UpdateDoctor } from "../services/Clinic";
+import { DELETE_STAFF_REQUEST, DELETE_STAFF_SUCCESS, UPDATE_STAFF_REQUEST, UPDATE_STAFF_SUCCESS,UPDATE_DOCTOR_REQUEST,UPDATE_DOCTOR_SUCCESS } from "./clinicConstant";
 import {
   ADD_NEW_STAFF_REQUEST,
   ADD_NEW_STAFF_SUCCESS,
@@ -7,7 +7,9 @@ import {
   GET_STAFF_LIST_REQUEST,
   GET_STAFF_LIST_SUCCESS,
   GET_DOCTOR_LIST_REQUEST,
-  GET_DOCTOR_LIST_SUCCESS
+  GET_DOCTOR_LIST_SUCCESS,
+  ADD_NEW_DOCTOR_REQUEST,
+  ADD_NEW_DOCTOR_SUCCESS
 } from "./clinicConstant";
 
 export const GetStaffListAction = (token, navigate) => dispatch => {
@@ -112,6 +114,51 @@ export const GetDoctorListAction = (token, navigate) => dispatch => {
     if (res.status == 200) {
       dispatch({
         type: GET_DOCTOR_LIST_SUCCESS,
+        payload: res.data
+      });
+    } else {
+      dispatch({
+        type: CLINIC_SERVER_ERROR,
+        payload: res
+      });
+    }
+  });
+};
+
+
+export const AddNewDoctorAction = (data, token, navigate) => dispatch => {
+  dispatch({
+    type: ADD_NEW_DOCTOR_REQUEST,
+    payload: []
+  });
+
+  AddNewDoctor(data, token).then(res => {
+    console.log(res, "Data");
+    if (res.status == 200) {
+      dispatch({
+        type: ADD_NEW_STAFF_SUCCESS,
+        payload: res.data
+      });
+    } else {
+      dispatch({
+        type: CLINIC_SERVER_ERROR,
+        payload: res
+      });
+    }
+  });
+};
+
+export const UpdatedoctorAction = (data, token, navigate) => dispatch => {
+  dispatch({
+    type: UPDATE_DOCTOR_REQUEST,
+    payload: []
+  });
+
+  UpdateDoctor(data, token).then(res => {
+    console.log(res, "Data");
+    if (res.status == 200) {
+      dispatch({
+        type: UPDATE_DOCTOR_REQUEST,
         payload: res.data
       });
     } else {

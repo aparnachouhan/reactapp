@@ -13,10 +13,10 @@ import {
 } from "@material-tailwind/react";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { AddNewStaffAction, UpdateStaffAction } from "../../../redux/Clinic/clinicActions";
+import { AddNewDoctorAction, UpdatedoctorAction } from "../../../redux/Clinic/clinicActions";
 const AddDoctor = props => {
   const [open, setOpen] = useState(false);
-  const [staffMemberDetails, setStaffMemberDetails] = React.useState(
+  const [doctorMemberDetails, setdoctorMemberDetails] = React.useState(
     props.userDetails
   );
   const token = useSelector(state => state.login.accessToken);
@@ -24,33 +24,42 @@ const AddDoctor = props => {
   const dispatch = useDispatch();
   const handleOpen = () => setOpen(!open);
 
-  const UpdateStaffmember = () => {
+  const Updatedoctormember = () => {
     const formData = new URLSearchParams();
-    formData.append("first_Name", staffMemberDetails.first_Name);
-    formData.append("last_Name", staffMemberDetails.last_Name);
-    formData.append("email", staffMemberDetails.email);
-    formData.append("contact", staffMemberDetails.contact);
+    formData.append("first_Name", doctorMemberDetails.first_Name);
+    formData.append("last_Name", doctorMemberDetails.last_Name);
+    formData.append("email", doctorMemberDetails.email);
+    formData.append("contact", doctorMemberDetails.contact);
+    formData.append("designation", doctorMemberDetails.designation);
+    formData.append("experience", doctorMemberDetails.experience);
+    formData.append("qualification", doctorMemberDetails.qualification);
+    formData.append("specialist", doctorMemberDetails.specialist);
+    
 
-    dispatch(UpdateStaffAction(staffMemberDetails, token));
+    dispatch(UpdatedoctorAction(doctorMemberDetails, token));
     handleOpen();
   };
 
-  const AddStaffMember = () => {
+  const AdddoctorMember = () => {
     const formData = new URLSearchParams();
-    formData.append("first_Name", staffMemberDetails.first_Name);
-    formData.append("last_Name", staffMemberDetails.last_Name);
-    formData.append("email", staffMemberDetails.email);
-    formData.append("password", staffMemberDetails.password);
-    formData.append("contact", staffMemberDetails.contact);
-    formData.append("password2", staffMemberDetails.password);
-
-    dispatch(AddNewStaffAction(formData, token));
+    formData.append("first_Name", doctorMemberDetails.first_Name);
+    formData.append("last_Name", doctorMemberDetails.last_Name);
+    formData.append("email", doctorMemberDetails.email);
+    formData.append("password", doctorMemberDetails.password);
+    formData.append("contact", doctorMemberDetails.contact);
+    formData.append("designation", doctorMemberDetails.designation);
+    formData.append("experience", doctorMemberDetails.experience);
+    formData.append("qualification", doctorMemberDetails.qualification);
+    formData.append("specialist", doctorMemberDetails.specialist);
+    formData.append("password2", doctorMemberDetails.password);
+    
+    dispatch(AddNewDoctorAction(formData, token));
     handleOpen();
   };
 
   const onChange = e => {
-    setStaffMemberDetails({
-      ...staffMemberDetails,
+    setdoctorMemberDetails({
+      ...doctorMemberDetails,
       [e.target.name]: e.target.value
     });
   };
@@ -62,7 +71,7 @@ const AddDoctor = props => {
       </Button>
       <Dialog open={open} handler={handleOpen}>
         <DialogHeader>
-          {props.userDetails ? "Update Staff Member" : "Add Staff Memeber"}
+          {props.userDetails ? "Update Doctor Member" : "Add Doctor Memeber"}
         </DialogHeader>
         <DialogBody divider>
           <div className="flex flex-col space-y-4">
@@ -73,7 +82,7 @@ const AddDoctor = props => {
                 color="lightBlue"
                 size="regular"
                 name="first_Name"
-                value={staffMemberDetails.first_Name}
+                value={doctorMemberDetails.first_Name}
                 outline={true}
                 onChange={onChange}
               />
@@ -84,23 +93,21 @@ const AddDoctor = props => {
                 size="regular"
                 name="last_Name"
                 onChange={onChange}
-                value={staffMemberDetails.last_Name}
+                value={doctorMemberDetails.last_Name}
                 outline={true}
               />
             </div>
-            <div className="">
+            <div className="flex flex-row space-x-4">
               <Input
                 placeholder="Email"
                 onChange={onChange}
                 type="text"
                 color="lightBlue"
-                value={staffMemberDetails.email}
+                value={doctorMemberDetails.email}
                 size="regular"
                 name="email"
                 outline={true}
               />
-            </div>
-            <div className="">
               <Input
                 placeholder="Contact Number"
                 onChange={onChange}
@@ -108,7 +115,51 @@ const AddDoctor = props => {
                 color="lightBlue"
                 size="regular"
                 name="contact"
-                value={staffMemberDetails.contact}
+                value={doctorMemberDetails.contact}
+                outline={true}
+              />
+            </div>
+            <div className="flex flex-row space-x-4">
+              <Input
+                placeholder="Designation"
+                onChange={onChange}
+                type="text"
+                color="lightBlue"
+                value={doctorMemberDetails.designation}
+                size="regular"
+                name="designation"
+                outline={true}
+              />
+              <Input
+                placeholder="Experience"
+                onChange={onChange}
+                type="number"
+                color="lightBlue"
+                size="regular"
+                name="experience"
+                value={doctorMemberDetails.experience}
+                outline={true}
+              />
+            </div>
+            <div className="flex flex-row space-x-4">
+              <Input
+                placeholder="Qualification"
+                onChange={onChange}
+                type="text"
+                color="lightBlue"
+                value={doctorMemberDetails.qualification}
+                size="regular"
+                name="qualification"
+                outline={true}
+              />
+              <Input
+                placeholder="Specialist"
+                onChange={onChange}
+                type="text"
+                color="lightBlue"
+                size="regular"
+                name="specialist"
+                value={doctorMemberDetails.specialist}
                 outline={true}
               />
             </div>
@@ -119,7 +170,7 @@ const AddDoctor = props => {
                 onChange={onChange}
                 color="lightBlue"
                 name="password"
-                value={staffMemberDetails.password}
+                value={doctorMemberDetails.password}
                 size="regular"
                 outline={true}
               />
@@ -135,7 +186,7 @@ const AddDoctor = props => {
           >
             <span>Cancel</span>
           </Button>
-          <Button variant="gradient" color="green" onClick={props.userDetails ? UpdateStaffmember : AddStaffMember}>
+          <Button variant="gradient" color="green" onClick={props.userDetails ? Updatedoctormember : AdddoctorMember}>
             <span>
               {props.userDetails ? "Update user" : "Add User"}
             </span>
